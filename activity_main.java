@@ -30,13 +30,13 @@ public class uassensor extends Activity implements SensorEventListener{
         super.onResume();
         // register this class as a listener for the Pressure Sensor
         sensorManager.registerListener(this,
-                sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE),
+                sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
                 SensorManager.SENSOR_DELAY_NORMAL);
     }
     // called when sensor value have changed
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_PRESSURE) {
+        if (event.sensor.getType() == Sensor.TYPE_ORIENTATION) {
             float[] values = event.values;
             TVAirPressure.setText("" + values[0]);
         }
